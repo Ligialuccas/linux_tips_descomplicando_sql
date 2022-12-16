@@ -42,18 +42,18 @@ where descCidade in ('presidente prudente', 'curitiba')
 
 -- COMMAND ----------
 
-select 
-      round(avg (vlPreco),2) as avgPreco,-- media da coluna vlPreco 
-      int(percentile(vlPreco, 0.5)) as medianPreco, --preco mediano dos produtos
-      max (vlPreco) as maxPreco,  --maximo da coluna vlPreco
-      avg (vlFrete) as avgFrete, -- media da coluna vlFrete
-      max (vlFrete) as maxFrete,
-      min (vlFrete) as minFrete
+SELECT
+      ROUND(AVG (vlPreco),2) AS avgPreco,-- media da coluna vlPreco 
+      INT(PERCENTILE(vlPreco, 0.5)) AS medianPreco, --preco mediano dos produtos
+      MAX (vlPreco) AS maxPreco,  --maximo da coluna vlPreco
+      AVG (vlFrete) AS avgFrete, -- media da coluna vlFrete
+      MAX (vlFrete) AS maxFrete,
+      MIN (vlFrete) AS minFrete
 
-from silver_olist.item_pedido
+FROM silver_olist.item_pedido
 
 -- COMMAND ----------
 
-select count(*)
-from silver_olist.client
-where descUF = 'SP'
+SELECT COUNT(*)
+FROM silver_olist.cliente
+WHERE descUF = 'SP'
